@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bahnschrift', 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Стили для первой секции (из первого кода) */
+.hero-section {
+    background-image: url('../image/runman.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header-image {
+    max-width: 1200px;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    top: -35px;
+}
+
+/* Блок текста с «дымкой» */
+.text-block {
+    position: absolute;
+    top: 30%;
+    left: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    /* при необходимости сохранить «парение» */
+    animation: floatText 5s ease-in-out infinite;
+}
+
+.main-heading {
+    font-size: 48px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+    max-width: 25ch;
+}
+
+.description {
+    font-size: 22px;
+    margin-bottom: 5px;
+    line-height: 1.6;
+    text-align: left;
+    max-width: 50ch;
+
+    animation: floatText 5.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #009246;
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #007a3a;
+}
+
+.main-heading,
+.description {
+    /* тень по осям X/Y и размытие, плюс более лёгкий «ореол» */
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        /* основная тень */
+        0 0 8px rgba(0, 0, 0, 0.5);
+    /* лёгкое свечение */
+}
+
+/* Итальянский флаг на всю ширину страницы */
+.flag-strip {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    left: 0;
+    right: 0;
+}
+
+.flag-green {
+    background-color: #009246;
+    flex: 1;
+}
+
+.flag-white {
+    background-color: white;
+    flex: 1;
+}
+
+.flag-red {
+    background-color: #CE2B37;
+    flex: 1;
+}
+
+/* Стили для остальных секций (из второго кода) */
+.main-content {
+    background: linear-gradient(135deg, #d13b40 0%, #5cb270 100%);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Добавляем отступ для секций, чтобы они не скрывались под header */
+.main-content {
+    padding-top: 0;
+    /* Изначально без отступа */
+    transition: padding-top 0.3s ease;
+}
+
+/* Когда header видим, добавляем отступ сверху */
+.main-content.adjusted {
+    padding-top: 90px;
+    /* Регулируйте это значение в зависимости от высоты вашего header */
+}
+
+/* Стиль для приветствия пользователя */
+.welcome-message {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.username {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #25a838;
+}
+
+.section {
+    min-height: 80vh;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    width: 100%;
+}
+
+.section-content {
+    flex-direction: row;
+}
+
+#section2 .section-content {
+    flex-direction: row-reverse;
+}
+
+.section-text {
+    max-width: 550px;
+    padding-left: 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    padding: 18px 25px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px 15px 30px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: fit-content;
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: scale(1.05) !important;
+}
+
+@keyframes smoothFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.image-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-bg {
+    width: 450px;
+    height: 450px;
+    background-color: #d13b40;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 1;
+    animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.tank-image {
+    position: relative;
+    z-index: 2;
+    max-width: 140%;
+    max-height: 650px;
+}
+
+.map-image {
+    max-width: 120%;
+    max-height: 550px;
+    border: 5px solid #ddd;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.uniforms-container {
+    position: relative;
+    width: 550px;
+    height: 450px;
+}
+
+/* CSS для униформ */
+.uniform {
+    position: absolute;
+    max-width: 350px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.uniform:nth-child(1) {
+    left: -95px;
+    z-index: 3;
+    animation: float-1 3s ease-in-out infinite;
+}
+
+.uniform:nth-child(2) {
+    left: 150px;
+    z-index: 2;
+    animation: float-2 3.5s ease-in-out infinite;
+}
+
+.uniform:nth-child(3) {
+    left: 405px;
+    z-index: 1;
+    animation: float-3 4s ease-in-out infinite;
+}
+
+/* Keyframes для левитации с разными паттернами */
+@keyframes float-1 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes float-2 {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float-3 {
+    0% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+/* Создаем анимацию пульсации для наведения */
+@keyframes pulse-uniform {
+    0% {
+        transform: translateY(-15px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+
+    100% {
+        transform: translateY(-15px) scale(1);
+    }
+}
+
+/* Эффект при наведении с пульсацией */
+.uniform:hover {
+    animation: pulse-uniform 1.5s ease-in-out infinite !important;
+    z-index: auto;
+}
+
+/* Исправление для AOS анимаций */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+[data-aos].uniform.aos-animate {
+    animation-name: float-1, float-2, float-3;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px 0;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .uniform {
+        width: 200px;
+    }
+
+    .uniform:nth-child(1) {
+        left: 0;
+    }
+
+    .uniform:nth-child(2) {
+        left: 60px;
+    }
+
+    .uniform:nth-child(3) {
+        left: 120px;
+    }
+}
+
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    z-index: 1000;
+}
+
+.flash-message {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.flash-message.success {
+    background-color: rgba(47, 223, 117, 0.7);
+    color: #fff;
+    border: 1px solid rgba(47, 223, 117, 0.9);
+}
+
+.flash-message.danger {
+    background-color: rgba(239, 87, 87, 0.7);
+    color: #fff;
+    border: 1px solid rgba(239, 87, 87, 0.9);
+}

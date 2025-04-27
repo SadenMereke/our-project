@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bahnschrift', 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Стили для самого header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #006832;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Когда добавляется класс visible – header выезжает */
+header.visible {
+    transform: translateY(0);
+}
+
+/* Блоки навигации слева и справа */
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 10px;
+    flex-basis: 30%;
+}
+
+/* Логотип по центру */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 40%;
+    position: relative;
+    text-align: center;
+}
+
+.logo img {
+    height: 40px;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+}
+
+/* Кнопки навигации */
+.nav-left button,
+.nav-right button {
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Выравнивание кнопок внутри блоков */
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+/* Стили для блока авторизации (если пользователя нет) */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.auth-button {
+    background-color: #d13b40;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #b82e33;
+}
+
+.auth-button.register {
+    background-color: #009246;
+}
+
+.auth-button.register:hover {
+    background-color: #007a3a;
+}
+
+/* Контейнер профиля (если пользователь залогинен) */
+.profile-container {
+    position: relative;
+}
+
+/* Круглая миниатюра профиля */
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Выпадающее меню профиля */
+.profile-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: none;
+    /* показывать через JS */
+    overflow: hidden;
+    animation: slideDown 0.3s ease;
+}
+
+/* Анимация выпадания меню */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Блок с аватаром и именем в выпадающем меню */
+.profile-info {
+    padding: 15px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.profile-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #009246;
+}
+
+.profile-info .username {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Кнопки действий в выпадающем меню */
+.profile-actions {
+    padding: 10px;
+}
+
+.profile-actions button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #009246;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-actions button:hover {
+    background-color: #007a3a;
+}
