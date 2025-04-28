@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма Регистрации</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('/static/img/gory-tsvety-dom-skaly.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .floating-img {
+            position: absolute;
+            top: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            /* вместо 120px поставим, скажем, 200px */
+            width: 500px;
+            height: auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            font-family: 'Bahnschrift', sans-serif;
+            z-index: 9999;
+            text-decoration: none;
+        }
+
+        .back-button i {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+
+        .back-button:hover {
+            text-decoration: none;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0)
+            }
+
+            50% {
+                transform: translate(-50%, -20px)
+            }
+        }
+
+        .register-container {
+            margin: 80px auto 0;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .form-group i {
+            position: absolute;
+            right: 20px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            top: 50%;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="confirm-password"] {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, .2);
+            border-radius: 40px;
+            padding: 20px 45px 20px 20px;
+        }
+
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder,
+        input[type="confirm-password"]::placeholder {
+            color: #fff;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="confirm-password"]:focus {
+            outline: none;
+            box-shadow: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .checkbox-container label {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #fff;
+            color: black;
+            border: none;
+            border-radius: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            font-weight: 600;
+        }
+
+        .register-link {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .register-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back-button" onclick="history.back()">
+        <i class='bx bxs-left-arrow'></i> Назад
+    </button>
+    <img src="/static/img/Group 27.png" alt="Логотип" class="floating-img">
+    <div class="register-container">
+        <h1 class="register-title">Зарегистрироваться</h1>
+        <form>
+            <div class="form-group">
+                <input type="email" placeholder="Ваш email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Ваш пароль" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="form-group">
+                <input type="confirm-password" placeholder="Подтвердите пароль" required>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember">
+                <label for="remember">Я помню все это хорошо</label>
+            </div>
+            <button type="submit" class="register-button">Создать аккаунт</button>
+            <div class="register-link">
+                У Вас уже есть аккаунт? <a href="loginV2.html">Войти</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
